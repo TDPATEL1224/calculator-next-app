@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v7
+        with:
+          start: npm run dev
+          wait-on: "http://127.0.0.1:3000"
