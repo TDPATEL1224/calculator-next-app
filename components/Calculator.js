@@ -58,3 +58,4 @@ export default function Calculator() {
     </div>
   )
 }
+<button id="btn-e" onClick={() => handleClick("E")}>E</button>
